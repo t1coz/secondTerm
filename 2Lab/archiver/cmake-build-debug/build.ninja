@@ -58,6 +58,12 @@ build CMakeFiles/archiver.dir/functions.c.o: C_COMPILER__archiver_Debug /Users/h
   OBJECT_DIR = CMakeFiles/archiver.dir
   OBJECT_FILE_DIR = CMakeFiles/archiver.dir
 
+build CMakeFiles/archiver.dir/functionsForWords.c.o: C_COMPILER__archiver_Debug /Users/hanna/Documents/labi/2Sem/2Laba/archiver/functionsForWords.c || cmake_object_order_depends_target_archiver
+  DEP_FILE = CMakeFiles/archiver.dir/functionsForWords.c.o.d
+  FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk -fcolor-diagnostics -std=gnu99
+  OBJECT_DIR = CMakeFiles/archiver.dir
+  OBJECT_FILE_DIR = CMakeFiles/archiver.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target archiver
@@ -66,7 +72,7 @@ build CMakeFiles/archiver.dir/functions.c.o: C_COMPILER__archiver_Debug /Users/h
 #############################################
 # Link the executable archiver
 
-build archiver: C_EXECUTABLE_LINKER__archiver_Debug CMakeFiles/archiver.dir/main.c.o CMakeFiles/archiver.dir/functions.c.o
+build archiver: C_EXECUTABLE_LINKER__archiver_Debug CMakeFiles/archiver.dir/main.c.o CMakeFiles/archiver.dir/functions.c.o CMakeFiles/archiver.dir/functionsForWords.c.o
   FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk
   OBJECT_DIR = CMakeFiles/archiver.dir
   POST_BUILD = :

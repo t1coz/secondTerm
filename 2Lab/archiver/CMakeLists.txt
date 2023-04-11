@@ -3,4 +3,4 @@ project(archiver C)
 
 set(CMAKE_C_STANDARD 99)
 
-add_executable(archiver main.c functions.c)
+add_executable(archiver main.c functions.c words.h functionsForWords.c functionsForWords.h)
