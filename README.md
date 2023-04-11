@@ -6,4 +6,8 @@ Creation of structure and further operations with it.
 
 ***2Lab***
 
-Archiver and opposite stuff for text file.
+Compressor and decompressor for a text file.
+
+***3Lab***
+
+Modificating .bmp files
