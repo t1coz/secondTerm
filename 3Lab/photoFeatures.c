@@ -1,39 +1,6 @@
 #include "photoFeatures.h"
 #include "menuFunctions.h"
 #include "structures.h"
-//void convertion(const BMPImage *image, const char *fileName, int choice){
-//    if (image == NULL) {
-//        printf("The image is NULL\n");
-//        return;
-//    }
-//    if (image->pixels == NULL) {
-//        printf("The image has no data.\n");
-//        return;
-//    }
-//    BMPImage tempParam;
-//    tempParam.fileHeader = image->fileHeader;
-//    tempParam.imageHeader = image->imageHeader;
-//    tempParam.pixels = (Pixel *)malloc((tempParam.imageHeader.width * tempParam.imageHeader.height) * sizeof(Pixel));
-//    if (tempParam.pixels == NULL){
-//        printf("Unable to allocate memory for pixels.\n");
-//        return;
-//    }
-//    unsigned int dataSize = image->imageHeader.width * image->imageHeader.height;
-//    memcpy(tempParam.pixels, image->pixels, dataSize * sizeof(Pixel));
-//    functionsSelection(choice, dataSize, image, tempParam);
-//
-//    FILE *newFile = fopen("editedPhoto.bmp", "wb");
-//    if (!newFile) {
-//        printf("Unable to open newFile\n");
-//        free(tempParam.pixels);
-//        return;
-//    }
-//    fwrite(&tempParam.fileHeader, sizeof(tempParam.fileHeader), 1, newFile);
-//    fwrite(&tempParam.imageHeader, sizeof(tempParam.imageHeader), 1, newFile);
-//    fwrite(tempParam.pixels, sizeof(Pixel), dataSize, newFile);
-//    free(tempParam.pixels);
-//    fclose(newFile);
-//}
 void convertNegative(const BMPImage *image, unsigned int height, unsigned int width){
     for (int i = 0; i < height; i++) {
         for (int j = 0; j < width; j++){
@@ -50,7 +17,6 @@ void convertBlackAndWhite(const BMPImage *image, unsigned int height, unsigned i
         for (int j = 0; j < width; j++){
             Pixel pixel = image->pixels[i][j];
             char grayscalePixel = (char)((0.3 * pixel.red) + pixel.blue * 0.11 + pixel.green * 0.59);
-            //char grayscalePixel = (char)(pixel.red + pixel.green + pixel.blue) / 3;
             pixel.red = grayscalePixel;
             pixel.green = grayscalePixel;
             pixel.blue = grayscalePixel;
@@ -84,9 +50,6 @@ void gammaCorrection(const BMPImage *image, unsigned int height, unsigned int  w
             image->pixels[i][j].red = (char)red;
             image->pixels[i][j].green = (char)green;
             image->pixels[i][j].blue = (char)blue;
-//            image->pixels[i][j].red = (char) min(max((int) red, 0), 255);
-//            image->pixels[i][j].green = (char) min(max((int) green, 0), 255);
-//            image->pixels[i][j].blue = (char) min(max((int) blue, 0), 255);
         }
     }
 }

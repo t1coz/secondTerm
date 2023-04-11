@@ -9,8 +9,6 @@ void getStr(char **string);
 void menuInterface(BMPImage *image, char* filePath);
 
 int methodOfInput(int size);
-double methodOfInputDouble();
-int methodOfInputInt();
 double methodOfInputGamma();
 int methodOfInputMedian();
 

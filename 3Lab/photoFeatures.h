@@ -6,21 +6,15 @@
 #ifndef INC_3LAB_PHOTOFEATURES_H
 #define INC_3LAB_PHOTOFEATURES_H
 
-void convertion(const BMPImage *image, const char *fileName, int choice);
-
 void convertBlackAndWhite(const BMPImage *image, unsigned int  height, unsigned int  width);
 void convertNegative(const BMPImage *image, unsigned int  height, unsigned int  width);
 
-int comparePixelsBrightnesses(const void *a, const void *b);
-Pixel **memoryAllocationForPixels(BMPImage tempParam);
-void getMedian(BMPImage tempParam, Pixel frame[], int *index, int x, int y, int frameWidth , int frameHeight);
+int compareForMedian(const void *a, const void *b);
 void medianFilter(const BMPImage *bmp, int frameSize, unsigned int height, unsigned int width);
-int findingMedian(unsigned char arr[], int n);
-void medianFilter2(BMPImage image, int median);
 
 void gammaCorrection(const BMPImage *image, unsigned int  height, unsigned int  width, double gamma);
-double power(double base, int exp);
-int comparisonIfMin(int a, int b);
-int comparisonIfMmax(int a, int b);
+int min(int a, int b);
+int max(int a, int b);
+
 
 #endif

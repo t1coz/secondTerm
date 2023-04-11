@@ -58,22 +58,6 @@ void menuInterface(BMPImage *image, char* filePath){
         printf("\n\033[0;34mThe feature has been implemented.\033[0m\n");
 //    }
 }
-double methodOfInputDouble(){
-    double num;
-    while (scanf("%lf", &num) != 1 || num <0 || getchar() != '\n') {
-        printf("Try better:\n");
-        rewind(stdin);
-    }
-    return num;
-}
-int methodOfInputInt(){
-    int num;
-    while (scanf("%d", &num) != 1 || num <0 || getchar() != '\n') {
-        printf("Try better:\n");
-        rewind(stdin);
-    }
-    return num;
-}
 int methodOfInput(int size){
     int num;
     while (scanf("%d", &num) != 1 || (!(num >=1 && num <=size)&& num != 99) || getchar() != '\n') {
