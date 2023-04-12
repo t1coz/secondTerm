@@ -10,11 +10,9 @@ void convertBlackAndWhite(const BMPImage *image, unsigned int  height, unsigned 
 void convertNegative(const BMPImage *image, unsigned int  height, unsigned int  width);
 
 int compareForMedian(const void *a, const void *b);
-void medianFilter(const BMPImage *bmp, int frameSize, unsigned int height, unsigned int width);
+void medianFilter(const BMPImage *image, int frameSize, unsigned int height, unsigned int width);
 
 void gammaCorrection(const BMPImage *image, unsigned int  height, unsigned int  width, double gamma);
-int min(int a, int b);
-int max(int a, int b);
-
+double power(double x, long n);
 
 #endif

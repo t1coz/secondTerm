@@ -2,9 +2,9 @@
 #define INC_3LAB_STRUCTURES_H
 #pragma pack(1)
 typedef struct Pixel{
-    char blue;
-    char green;
-    char red;
+    unsigned char blue;
+    unsigned char green;
+    unsigned char red;
 }Pixel;
 typedef struct BMPFileHeader{
     char ID[2];

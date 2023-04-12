@@ -4,8 +4,6 @@
 #include "structures.h"
 #ifndef INC_3LAB_FILEFUNCTIONS_H
 #define INC_3LAB_FILEFUNCTIONS_H
-BMPImage *readingImageData(const char *filePath);
-Pixel *pixelsInformation(FILE *file, const BMPImage *image);
 
 BMPImage *readBMPFile(const char *filePath);
 void writeBMP(const char *outputFilePath, const BMPImage *image);

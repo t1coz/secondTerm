@@ -24,32 +24,18 @@ void convertBlackAndWhite(const BMPImage *image, unsigned int height, unsigned i
         }
     }
 }
-void gammaCorrectionAboba(const BMPImage *image, unsigned int  height, unsigned int  width, double gamma){
-    double invertedGamma = 1.0/gamma;
+void gammaCorrection(const BMPImage *image, unsigned int height, unsigned int  width, double gamma){
+    double invertedGamma = gamma;
     for (int i = 0; i < height; i++) {
         for (int j = 0; j < width; j++){
-            image->pixels[i][j].red = (char)(pow(image->pixels[i][j].red / 255.0, invertedGamma) * 255.0);
-            image->pixels[i][j].green = (char)(pow(image->pixels[i][j].green / 255.0, invertedGamma) * 255.0);
-            image->pixels[i][j].blue = (char)(pow(image->pixels[i][j].blue / 255.0, invertedGamma) * 255.0);
-        }
-    }
-}
-int min(int a, int b){
-    return a < b ? a : b;
-}
-int max(int a, int b){
-    return a > b ? a : b;
-}
-void gammaCorrection(const BMPImage *image, unsigned int height, unsigned int  width, double gamma){
-    double invertedGamma = 1.0/gamma;
-    for (int i = 0; i < height; i++) {
-        for (int j = 0; j < width; j++) {
-            double red = (255.0 * pow(image->pixels[i][j].red / 255.0,  invertedGamma));
-            double green = (255.0 * pow(image->pixels[i][j].green / 255.0, invertedGamma));
-            double blue = (255.0 * pow(image->pixels[i][j].blue / 255.0, invertedGamma));
-            image->pixels[i][j].red = (char)red;
-            image->pixels[i][j].green = (char)green;
-            image->pixels[i][j].blue = (char)blue;
+            Pixel pixel = image->pixels[i][j];
+            double red = pow((double)image->pixels[i][j].red / 255.0, invertedGamma) * 255.0;
+            double green = pow((double)image->pixels[i][j].green / 255.0, invertedGamma) * 255.0;
+            double blue = pow((double)image->pixels[i][j].blue / 255.0, invertedGamma) * 255.0;
+            pixel.red = (char)red;
+            pixel.green = (char)green;
+            pixel.blue = (char)blue;
+            image->pixels[i][j] = pixel;
         }
     }
 }
@@ -58,7 +44,7 @@ int compareForMedian(const void *a, const void *b){
     const int *bb = (int *)b;
     return (*aa > *bb) - (*aa < *bb);
 }
-void medianFilter(const BMPImage *bmp, int frameSize, unsigned int height, unsigned int width){
+void medianFilter(const BMPImage *image, int frameSize, unsigned int height, unsigned int width){
     if (frameSize % 2 == 0) {
         frameSize++;
     }
@@ -70,7 +56,7 @@ void medianFilter(const BMPImage *bmp, int frameSize, unsigned int height, unsig
     }
     for (int i = 0; i < height; i++) {
         for (int j = 0; j < width; j++) {
-            pdPixels[i + pad][j + pad] = bmp->pixels[i][j];
+            pdPixels[i + pad][j + pad] = image->pixels[i][j];
         }
     }
     for (int i = 0; i < pad; i++) {
@@ -104,9 +90,9 @@ void medianFilter(const BMPImage *bmp, int frameSize, unsigned int height, unsig
             qsort(g, frameSize * frameSize, sizeof(unsigned int), compareForMedian);
             qsort(b, frameSize * frameSize, sizeof(unsigned int), compareForMedian);
 
-            bmp->pixels[i - pad][j - pad].red = r[frameSize * frameSize / 2];
-            bmp->pixels[i - pad][j - pad].green = g[frameSize * frameSize / 2];
-            bmp->pixels[i - pad][j - pad].blue = b[frameSize * frameSize / 2];
+            image->pixels[i - pad][j - pad].red = r[frameSize * frameSize / 2];
+            image->pixels[i - pad][j - pad].green = g[frameSize * frameSize / 2];
+            image->pixels[i - pad][j - pad].blue = b[frameSize * frameSize / 2];
         }
     }
 
