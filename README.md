@@ -10,4 +10,8 @@ Compressor and decompressor for a text file.
 
 ***3Lab***
 
-Modificating .bmp files
+Modificating .bmp files.
+
+***4Lab***
+
+Creating a parody of the Akinator.
