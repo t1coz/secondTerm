@@ -22,9 +22,10 @@ void insertingObject(Node* node, const char* question, const char* answer){
         }
     }
 }
-void actualGame(Node* node, Node*** answers, int* answersSize){
+void actualGame(Node* node, Node*** answers, int* answersSize, char* userName){
     if(node == NULL){
         printf("\n\033[0;31mThere is no data.\033[0m\n");
+        logger(userName, "There is no data", "n");
         return;
     }
     if(node->yes == NULL){
@@ -33,35 +34,43 @@ void actualGame(Node* node, Node*** answers, int* answersSize){
         printf("\033[0;33m%s\033[0m (y/n)\n", node->question);
     }
     char* answer;
+    getStr(&answer);
     while(strcmp(answer, "y") != 0 && strcmp(answer, "n") != 0){
         getStr(&answer);
     }
+    logger(userName, node->question, answer);
     if (strcmp(answer, "y") == 0){
         *answers = realloc(*answers, (*answersSize + 1) * sizeof(Node*));
         (*answers)[*answersSize] = node;
         (*answersSize)++;
         if(node->yes != NULL){
-            actualGame(node->yes, answers, answersSize);
+            actualGame(node->yes, answers, answersSize, userName);
         }else{
             printf("\n\033[0;35m---------------------------------------------\n");
             printf("\nI got it right! (*^‿^*)\n");
             printf("\n---------------------------------------------\033[0m\n");
+            logger(userName, "akinator got it right", "y");
+
         }
     }else if (strcmp(answer, "n") == 0) {
         if(node->no != NULL){
-            actualGame(node->no, answers, answersSize);
+            actualGame(node->no, answers, answersSize, userName);
         }else{
             printf("\n\033[0;35mI lost (￣ヘ￣)\033[0m\nWhat did you guess?\n");
+            logger(userName, "akinator lost it", "y");
             char* additionalObject;
             char* newQuestion;
             getStr(&additionalObject);
+            logger(userName, "additionalObject has been added", "y");
             printf("Write an distinguishing question for your object: ");
             getStr(&newQuestion);
+            logger(userName, "newQuestion has been added", "y");
             Node* newQuestionNode = newNode(newQuestion);
             Node* newObjectNode = newNode(additionalObject);
             newQuestionNode->yes = newObjectNode;
             node->no = newQuestionNode;
             printf("Ok, got it.\nThe database's been updated.\n");
+            logger(userName, "database has been updated", "y");
         }
     }
 }

@@ -12,7 +12,7 @@ void clearStructHistory(Node*** answers, int* answersSize);
 void freeStructure(Node* node);
 
 void insertingObject(Node* node, const char* question, const char* answer);
-void actualGame(Node* node, Node*** answers, int* answersSize);
+void actualGame(Node* node, Node*** answers, int* answersSize, char* userName);
 
 int findClosingBracket(const char* row);
 void furtherParsing(Node** node, const char* fileRow, const char* yesBeginning, const char* answerChecking);
