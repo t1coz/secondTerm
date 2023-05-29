@@ -1,0 +1,17 @@
+youtube.com 142.251.214.142
+twitch.tv 151.101.66.167
+github.com 192.30.255.113
+monkeytype.com 104.21.75.89
+cstimer.net 47.242.164.27
+deepl.com 172.65.229.194
+itorrents-igruha.org 104.26.5.172
+ti-site.org itorrents-igruha.org
+krakenfiles.com itorrents-igruha.org
+spotify.com 35.186.224.25
+trovo.live 18.155.181.105
+kinogo.biz 104.22.76.114
+kinogo.zone kinogo.biz
+kinogo.fm kinogo.biz
+kinogo.io kinogo.biz
+aboba.com spotify.com
+caramel.org 128.42.77.11

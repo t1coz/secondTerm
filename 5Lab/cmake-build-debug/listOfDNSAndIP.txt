@@ -1,0 +1,13 @@
+youtube.com 142.251.214.142
+github.com 192.30.255.113
+monkeytype.com 104.21.75.89
+cstimer.net 47.242.164.27
+krakenfiles.com 18.166.188.105
+trovo.live 18.155.181.105
+kinogo.biz 104.22.76.114
+kinogo.zo kinogo.biz
+kinogo.fm kinogo.biz
+habr.com 178.248.237.68
+yandex.ru 77.88.55.60
+dzen.ru yandex.ru
+aboba.com 77.88.55.60
