@@ -15,3 +15,7 @@ Modificating .bmp files.
 ***4Lab***
 
 Creating a parody of the Akinator.
+
+***5Lab***
+
+Searching a dns and using cache.
