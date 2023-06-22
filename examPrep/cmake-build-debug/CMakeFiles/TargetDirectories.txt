@@ -1,0 +1,3 @@
+/Users/hanna/Documents/labi/examPrep2Sem/cmake-build-debug/CMakeFiles/examPrep2Sem.dir
+/Users/hanna/Documents/labi/examPrep2Sem/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/hanna/Documents/labi/examPrep2Sem/cmake-build-debug/CMakeFiles/rebuild_cache.dir
